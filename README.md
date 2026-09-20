@@ -1,3 +1,11 @@
+---
+title: "VXL"
+fontsize: 16pt
+geometry:
+    - a4paper
+    - margin=2.5cm
+---
+
 # README
 
 ## Đây là gì???
@@ -28,11 +36,11 @@ Giả dụ như sau:
 
 ```Tree
 .
-├── Bai_1
-|   └─Subfolders/
-|       └─Files
+|-- Bai_1
+|   |_Subfolders/
+|       |_Files
 |   
-└── README.md
+|___ README.md
 
 ```
 

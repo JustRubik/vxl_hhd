@@ -142,8 +142,10 @@ Kích thước file:
 
 và kết quả:
 
-`7.8M    python/dist/main
-7.8M    total`
+```Zsh
+7.8M    python/dist/main
+7.8M    total
+```
 
 Tốc độ chạy file:
 
@@ -153,9 +155,11 @@ hyperfine -N -r 100 ./python/dist/main
 
 và kết quả:
 
-```Text
+```Zsh
 Benchmark 1: ./python/dist/main
-    Time (mean )
+  Time (mean ± σ):     104.9 ms ±   1.9 ms    [User: 94.1 ms, System: 10.1 ms]
+  Range (min … max):   103.2 ms … 113.2 ms    100 runs
+
 ```
 
 #### C/C++
@@ -163,9 +167,9 @@ Benchmark 1: ./python/dist/main
 Với việc sử dụng câu lệnh tuỳ chỉnh `crg` (*xem thêm ở phụ lục*) trong ~/.zshrc, đầu ra của câu lệnh này đã là 1 file thực thi:
 
 ```Zsh
-crg helloc
+crg c_cpp/helloc
 
-crg hellocpp
+crg c_cpp/hellocpp
 ```
 
 Kích thước file:
@@ -181,17 +185,41 @@ du -a c_cpp/
 20      ./hellocpp
 ```
 
+Tốc độ file:
+
+```Zsh
+// helloc
+hyperfine -N -r 100 ./c_cpp/helloc
+
+Benchmark 1: ./Bai_1/c_cpp/helloc
+  Time (mean ± σ):     298.4 µs ±  54.3 µs    [User: 253.0 µs, System: 7.3 µs]
+  Range (min … max):   259.5 µs … 626.1 µs    100 runs
+
+// hellocpp
+hyperfine -N -r 100 ./c_cpp/hellocpp
+
+Benchmark 1: ./Bai_1/c_cpp/hellocpp
+  Time (mean ± σ):     770.4 µs ±  85.0 µs    [User: 664.6 µs, System: 37.8 µs]
+  Range (min … max):   608.0 µs … 1006.3 µs    100 runs
+
+```
+
 #### Assembly
 
 Kích thước file thực thi là kích thước file hello (elf):
 
 ```Zsh
 // Giả sử đang ở folder Bai_1 (folder gốc)
-cd asm/
-du -a
+du -a asm/
 
 // Kết quả
-
+4	asm/hello.asm
+8	asm/hello
+4	asm/hello.o
+20	asm
 ```
 
+Tốc độ file:
+```Zsh
 
+```
