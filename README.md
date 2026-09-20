@@ -1,11 +1,3 @@
----
-title: "VXL"
-fontsize: 16pt
-geometry:
-    - a4paper
-    - margin=2.5cm
----
-
 # README
 
 ## Đây là gì???
