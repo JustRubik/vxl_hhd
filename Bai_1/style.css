@@ -35,7 +35,3 @@ th {
 h2 {
     break-before: page;
 }
-
-h1 + h2 {
-  break-before: auto;
-}

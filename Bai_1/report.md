@@ -1,5 +1,15 @@
 # Báo cáo bài tập
 
+Họ và tên   : **Đặng Huy Hiếu**
+
+MSSV        : 20223771
+
+Lớp         : Kĩ thuật Vi xử lý
+
+Mã lớp      : 173836
+
+GVHD        : **TS. Hàn Huy Dũng**
+
 ## Đề bài
 
 - Viết chương trình đơn giản: in ra 1 dòng "hello world" bằng 3 ngôn ngữ: Python,  C , Assembly. 
@@ -271,6 +281,67 @@ Có thể thấy, ngôn ngữ lập trình nào càng dễ viết, càng yêu c�
 
 ## Phụ lục
 
-### Về filesystem trong windows và linux
+### Về assembly trong windows và linux
 
+Câu lệnh mà có thể chạy code `asm` trên windows: `nasm hello.asm -f bin -o hello.com` và sau đó chạy DOS emulator, ví dụ như `DOSBox`: `dosbox hello.com`
 
+Nếu muốn workflow cũng giống trên `linux` (\[nasm] -> .o file -> \[linker] -> elf file) thì có thể chạy `nasm -f win64 -o hello.asm` và sau đó dùng `gcc` làm linker.
+
+### crg
+
+`crg` là 1 aliass function được định nghĩa trong `~/.zshrc ` của em:
+
+```Zsh
+# Compile & Run with gcc/g++
+crg () {
+  if [ -z "$1" ]; then
+    echo "[ERROR]: No files found"
+    return 1
+  fi
+
+  ext="${1##*.}"
+  ext=$(echo "$ext" | tr '[:upper:]' '[:lower:]')
+
+  filename="${1%.*}"
+  version="${2:-11}"
+
+  if [ "$ext" = "cpp" ]; then
+    ggg="g++"
+    std="c++"
+  elif [ "$ext" = "c" ]; then
+    ggg="gcc"
+    std="c"
+  else
+    echo "[ERROR]: False extension"
+    return 1
+  fi
+  
+  "$ggg" -std="$std$version" -O3 -Wall "$1" -o "$filename" && "./$filename"
+}
+```
+
+Cách dùng: `crg $file $version`
+
+### Cài đặt `nasm` 
+
+`nasm` là 1 công cụ mã nguồn mở, có sẵn trong kho `apt` của Debian 13, hoặc có thể tìm trên Windows qua kho `scoop`.
+
+Ngoài ra, có thể sử dụng `FASM` hoặc `GAS`.
+
+### Tài liệu phiên bản pdf
+
+Báo cáo này được viết dưới định dạng .md (markdown) file.
+
+Sau đó em sử dụng công cụ `pandoc` và `weasyprint` để lần lượt convert `report.md` sang `report.md.html` và `report.md.pdf`.
+
+## Tài liệu tham khảo
+
+[pyinstaller](https://pyinstaller.org/en/stable/)
+
+[TutorialsPoint](https://www.tutorialspoint.com/assembly_programming/index.htm/)
+
+[Hyperfine](https://github.com/sharkdp/hyperfine/)
+
+[Pandoc](https://pandoc.org/)
+
+[Weasyprint](https://weasyprint.org/)
