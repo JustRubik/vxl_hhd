@@ -7,6 +7,8 @@
 - Chạy 3 chương trình trên máy tính của mình. So sánh thời gian chạy.
 - Viết báo cáo toàn bộ quá trình.
 
+---
+
 ## Báo cáo kết quả đạt được
 
 ### 1. Viết chương trình "Hello world"
@@ -27,6 +29,8 @@ Lưu file main.py, và sau đó chạy lệnh:
 Kết quả:
 
 `Hello World`
+
+---
 
 #### C/C++
 
@@ -69,6 +73,8 @@ Chạy chương trình:
 Kết quả:
 
 `Hello world`
+
+---
 
 #### Assembly
 
@@ -116,6 +122,8 @@ Chạy file `hello` bằng câu lệnh `./hello` trên terminal ở folder chứ
 
 `Hello world`
 
+---
+
 ### 2. Dịch ra 3 file thực thi độc lập, so sánh kích thước và tốc độ
 
 Vì hệ điều hành em sử dụng là Debian 13, nên file thực thi là file elf (executable & linkable format).
@@ -123,6 +131,8 @@ Vì hệ điều hành em sử dụng là Debian 13, nên file thực thi là fi
 Để lấy được kích thước file, em sử dụng câu lệnh: `du -csh $file`, trong đó -csh là flag gồm: -c: in thêm tổng, -s: in tổng của đối tượng chỉ định (không liệt kê đối tượng con), -h: hiển thị **"human-readable"**, và `$file` là file hoặc folder mà muốn kiểm tra kích thước.
 
 Để so sánh tốc độ chạy file thực thi, em sử dụng thêm gói `hyperfine` có sẵn trên `apt`: `sudo apt install hyperfine`.
+
+---
 
 #### Python
 
@@ -138,11 +148,11 @@ Gói pyinstaller sẽ thực thi đóng gói python runtime để tạo thành 1
 
 Kích thước file:
 
-`du -csh python/dist/main`
-
-và kết quả:
-
 ```Zsh
+// Câu lệnh
+du -csh python/dist/main
+
+// Kết quả
 7.8M    python/dist/main
 7.8M    total
 ```
@@ -150,17 +160,18 @@ và kết quả:
 Tốc độ chạy file:
 
 ```Zsh
+// Câu lệnh
 hyperfine -N -r 100 ./python/dist/main
-```
 
-và kết quả:
-
-```Zsh
+// Kết quả
 Benchmark 1: ./python/dist/main
-  Time (mean ± σ):     104.9 ms ±   1.9 ms    [User: 94.1 ms, System: 10.1 ms]
-  Range (min … max):   103.2 ms … 113.2 ms    100 runs
-
+  Time (mean ± σ):     104.9 ms ±   1.9 ms
+  [User: 94.1 ms, System: 10.1 ms]
+  Range (min … max):   103.2 ms … 113.2 ms
+  100 runs
 ```
+
+---
 
 #### C/C++
 
@@ -191,18 +202,25 @@ Tốc độ file:
 // helloc
 hyperfine -N -r 100 ./c_cpp/helloc
 
+// Kết quả
 Benchmark 1: ./Bai_1/c_cpp/helloc
-  Time (mean ± σ):     298.4 µs ±  54.3 µs    [User: 253.0 µs, System: 7.3 µs]
-  Range (min … max):   259.5 µs … 626.1 µs    100 runs
+  Time (mean ± σ):     298.4 µs ±  54.3 µs
+  [User: 253.0 µs, System: 7.3 µs]
+  Range (min … max):   259.5 µs … 626.1 µs
+  100 runs
 
 // hellocpp
 hyperfine -N -r 100 ./c_cpp/hellocpp
 
+// Kết quả
 Benchmark 1: ./Bai_1/c_cpp/hellocpp
-  Time (mean ± σ):     770.4 µs ±  85.0 µs    [User: 664.6 µs, System: 37.8 µs]
-  Range (min … max):   608.0 µs … 1006.3 µs    100 runs
-
+  Time (mean ± σ):     770.4 µs ±  85.0 µs
+  [User: 664.6 µs, System: 37.8 µs]
+  Range (min … max):   608.0 µs … 1006.3 µs
+  100 runs
 ```
+
+---
 
 #### Assembly
 
@@ -220,6 +238,39 @@ du -a asm/
 ```
 
 Tốc độ file:
-```Zsh
 
+```Zsh
+// Câu lệnh
+hyperfine -N -r 100 ./Bai_1/asm/hello
+
+// Kết quả
+Benchmark 1: ./Bai_1/asm/hello
+  Time (mean ± σ):     309.9 µs ± 105.1 µs
+  [User: 188.4 µs, System: 13.0 µs]
+  Range (min … max):   212.8 µs … 849.4 µs
+  100 runs
 ```
+
+---
+
+### Nhận xét về kết quả đạt được
+
+Đây là bảng so sánh các thông số của các chương trình:
+
+|Chương trình|Kích thước|Thời gian (min/max/avg)|
+|------------|----------|-----------------------|
+|Python      |7.8 MB    |103.2/113.2/104.9 (ms) |
+|C           |16 B      |259.5/626.1/298.4 (μs) |
+|C++         |20 B      |608/1006.3/770.4 (μs)  |
+|Assembly    |8 B       |212.8/849.4/309.9 (μs) |
+
+Nhìn chung, file thực thi của python có kích thước cũng như thời gian lớn nhất, và giảm dần theo thứ tự là C++, C và Asm.
+
+Có thể thấy, ngôn ngữ lập trình nào càng dễ viết, càng yêu cầu nhiều bộ nhớ và thời gian thực thi.
+
+
+## Phụ lục
+
+### Về filesystem trong windows và linux
+
+

@@ -1,7 +1,12 @@
+FILE :=
+CSS :=
+
 .PHONY: all pandoc
 
 all:
-	"Add arguments, please"
+	@echo "Add arguments, please"
 
 pd:
-	pandoc README.md --metadata-file=pandoc.yaml --pdf-engine=lualatex -o README.pdf
+	# pandoc $(FILE) --metadata-file=pandoc.yaml --pdf-engine=lualatex -o $(FILE).pdf
+	pandoc $(FILE) --metadata-file=pandoc.yaml --css=style.css --standalone -o $(FILE).html
+	weasyprint $(FILE).html $(FILE).pdf

@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>report</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<h1 id="báo-cáo-bài-tập">Báo cáo bài tập</h1>
+<h2 id="đề-bài">Đề bài</h2>
+<ul>
+<li>Viết chương trình đơn giản: in ra 1 dòng “hello world” bằng 3 ngôn
+ngữ: Python, C , Assembly.</li>
+<li>Dịch ra 3 file exe chạy độc lập. So sánh kích thước 3 file.</li>
+<li>Chạy 3 chương trình trên máy tính của mình. So sánh thời gian
+chạy.</li>
+<li>Viết báo cáo toàn bộ quá trình.</li>
+</ul>
+<hr />
+<h2 id="báo-cáo-kết-quả-đạt-được">Báo cáo kết quả đạt được</h2>
+<h3 id="viết-chương-trình-hello-world">1. Viết chương trình “Hello
+world”</h3>
+<h4 id="python">Python</h4>
+<p>Trong Python, để viết ra chương trình “Hello world”, thì đơn giản chỉ
+cần 1 dòng duy nhất:</p>
+<p><code>print("Hello world")</code></p>
+<p>Lưu file main.py, và sau đó chạy lệnh:</p>
+<p><code>python3 main.py</code></p>
+<p><em>Câu lệnh được chạy trên OS Debian 13, cú pháp trên Windows đơn
+giản là <code>python main.py</code></em> <em>Lưu ý: cần chuyển về folder
+python/ trước khi chạy <code>cd python</code></em></p>
+<p>Kết quả:</p>
+<p><code>Hello World</code></p>
+<hr />
+<h4 id="cc">C/C++</h4>
+<ul>
+<li>Với C, chương trình như sau:</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main <span class="op">()</span> <span class="op">{</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  printf<span class="op">(</span><span class="st">&quot;Hello world&quot;</span><span class="op">);</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>Chương trình lưu trong <code>helloc.c</code></p>
+<p>Chạy chương trình:</p>
+<p><code>crg helloc.c</code></p>
+<p>Kết quả:</p>
+<p><code>Hello world%</code></p>
+<ul>
+<li>Với C++, chương trình như sau:</li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  std<span class="op">::</span>cout <span class="op">&lt;&lt;</span> <span class="st">&quot;Hello world&quot;</span> <span class="op">&lt;&lt;</span> std<span class="op">::</span>endl<span class="op">;</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>Chương trình lưu trong file <code>hellocpp.cpp</code></p>
+<p>Chạy chương trình:</p>
+<p><code>crg hellocpp.cpp</code></p>
+<p>Kết quả:</p>
+<p><code>Hello world</code></p>
+<hr />
+<h4 id="assembly">Assembly</h4>
+<p>Assembly là 1 ngôn ngữ khá mới đối với bản thân em, nên em đã tham
+khảo code trên trang web <a
+href="https://www.tutorialspoint.com/assembly_programming/index.htm">TutorialsPoint</a></p>
+<p>Chương trình như sau:</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode asm"><code class="sourceCode fasm"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">section</span> <span class="op">.</span>text<span class="op">:</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  global _start</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">_start:</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="bu">mov</span> <span class="kw">edx</span><span class="op">,</span> len</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="bu">mov</span> <span class="kw">ecx</span><span class="op">,</span> msg</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="bu">mov</span> <span class="kw">ebx</span><span class="op">,</span> <span class="dv">1</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="bu">mov</span> <span class="kw">eax</span><span class="op">,</span> <span class="dv">4</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="bu">int</span> <span class="bn">0x80</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  <span class="bu">mov</span> <span class="kw">eax</span><span class="op">,</span> <span class="dv">1</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  <span class="bu">mov</span> <span class="kw">ebx</span><span class="op">,</span> <span class="dv">0</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  <span class="bu">int</span> <span class="bn">0x80</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="bu">section</span> <span class="op">.</span>data</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>msg <span class="dt">db</span> <span class="st">&#39;Hello world&#39;</span><span class="op">,</span> <span class="bn">0xa</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>len equ <span class="op">$</span> <span class="op">-</span> msg</span></code></pre></div>
+<p>Chương trình được lưu trong file <code>hello.asm</code></p>
+<p>Các điều kiện để chương trình được biên dịch, liên kết và cuối cùng
+có thể “chạy” file thực thi:</p>
+<ul>
+<li>Đảm bảo câu lệnh sử dụng ở folder chứa <code>hello.asm</code></li>
+<li>Máy tính đã cài đặt <code>nasm</code> (<em>chi tiết xem ở phụ
+lục</em>)</li>
+<li>Để “tập hợp” chương trình, sử dụng câu lệnh
+<code>nasm -f elf hello.asm</code></li>
+<li>Sau bước trên, folder xuất hiện file <code>hello.o</code> (<em>nếu
+không thì có lỗi</em>)</li>
+<li>Để liên kết object file và tạo file thực thi, chạy lệnh
+<code>ld -m elf_i386 -s -o hello hello.o</code></li>
+<li>Sau khi bước trên thành công, file <code>hello</code> sẽ được tạo,
+chạy bằng cách <code>./hello</code></li>
+</ul>
+<p>Một vài lưu ý:</p>
+<ul>
+<li>Hệ điều hành sử dụng là Debian 13, vậy nên file hello.asm sẽ rất
+khác với file này trên windows, và đồng thời các câu lệnh cũng rất khác,
+tham khảo phụ lục.</li>
+<li>Ta có thể thay thế tên file thực thi output bằng bất cứ cái tên nào,
+chả hạn <code>... -o hellodebian13 ...</code></li>
+</ul>
+<p>Chạy file <code>hello</code> bằng câu lệnh <code>./hello</code> trên
+terminal ở folder chứa file, kết quả thu được:</p>
+<p><code>Hello world</code></p>
+<hr />
+<h3 id="dịch-ra-3-file-thực-thi-độc-lập-so-sánh-kích-thước-và-tốc-độ">2.
+Dịch ra 3 file thực thi độc lập, so sánh kích thước và tốc độ</h3>
+<p>Vì hệ điều hành em sử dụng là Debian 13, nên file thực thi là file
+elf (executable &amp; linkable format).</p>
+<p>Để lấy được kích thước file, em sử dụng câu lệnh:
+<code>du -csh $file</code>, trong đó -csh là flag gồm: -c: in thêm tổng,
+-s: in tổng của đối tượng chỉ định (không liệt kê đối tượng con), -h:
+hiển thị <strong>“human-readable”</strong>, và <code>$file</code> là
+file hoặc folder mà muốn kiểm tra kích thước.</p>
+<p>Để so sánh tốc độ chạy file thực thi, em sử dụng thêm gói
+<code>hyperfine</code> có sẵn trên <code>apt</code>:
+<code>sudo apt install hyperfine</code>.</p>
+<hr />
+<h4 id="python-1">Python</h4>
+<p>Python là một ngôn ngữ lập trình thường được sử dụng như một ngôn ngữ
+scripting, tức là file .py chỉ cần chứa các dòng lệnh cơ bản và đôi khi
+là các hàm với chức năng phức tạp hơn, còn việc chạy hay thực thi file
+là do python runtime thực hiện. Ở trên Debian 13, python3 được cài thông
+qua lệnh <code>sudo apt install python3</code>, là một interpreter, tức
+là nó chịu trách nhiệm thực thi các file <code>.py</code>. Vì vậy, việc
+tạo file thực thi cho chương trình python là tương đối khó khăn, thứ
+nhất là phải có package phù hợp để đóng gói python runtime và tất cả
+dependencies cần thiết để tạo 1 file thực thi và thứ hai là kích thước
+của file đó cũng vì vậy mà lớn hơn file thực thi của C/C++ rất
+nhiều.</p>
+<p>Trong báo cáo này, em sử dụng <code>pyinstaller</code>. Cách
+dùng:</p>
+<p><code>pyinstaller --one-file main.py</code></p>
+<p>Gói pyinstaller sẽ thực thi đóng gói python runtime để tạo thành 1
+file thực thi <code>main</code> duy nhất (ở đường dẫn
+<code>"./python/dist/main"</code>)</p>
+<p>Kích thước file:</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode zsh"><code class="sourceCode zsh"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">//</span> Câu lệnh</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">du</span> <span class="at">-csh</span> python/dist/main</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="ex">//</span> Kết quả</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="ex">7.8M</span>    python/dist/main</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="ex">7.8M</span>    total</span></code></pre></div>
+<p>Tốc độ chạy file:</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode zsh"><code class="sourceCode zsh"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">//</span> Câu lệnh</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">hyperfine</span> <span class="at">-N</span> <span class="at">-r</span> 100 ./python/dist/main</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="ex">//</span> Kết quả</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="ex">Benchmark</span> 1: ./python/dist/main</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Time</span> <span class="pp">(</span><span class="ss">mean ± σ</span><span class="pp">)</span>:     104.9 ms ±   1.9 ms</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="ex">[User:</span> 94.1 ms, System: 10.1 ms]</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Range</span> <span class="pp">(</span><span class="ss">min … max</span><span class="pp">)</span>:   103.2 ms … 113.2 ms</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="ex">100</span> runs</span></code></pre></div>
+<hr />
+<h4 id="cc-1">C/C++</h4>
+<p>Với việc sử dụng câu lệnh tuỳ chỉnh <code>crg</code> (<em>xem thêm ở
+phụ lục</em>) trong ~/.zshrc, đầu ra của câu lệnh này đã là 1 file thực
+thi:</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode zsh"><code class="sourceCode zsh"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">crg</span> c_cpp/helloc</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="ex">crg</span> c_cpp/hellocpp</span></code></pre></div>
+<p>Kích thước file:</p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode zsh"><code class="sourceCode zsh"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">//</span> Giả sử đang ở folder Bai_1 <span class="op">(fo</span>lder gốc)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>du -a c_cpp/</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>// Kết quả</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>4       ./helloc.c</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>16      ./helloc</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>4       ./hellocpp.cpp</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>20      ./hellocpp</span></code></pre></div>
+<p>Tốc độ file:</p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode zsh"><code class="sourceCode zsh"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">//</span> helloc</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="ex">hyperfine</span> <span class="at">-N</span> <span class="at">-r</span> 100 ./c_cpp/helloc</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="ex">//</span> Kết quả</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="ex">Benchmark</span> 1: ./Bai_1/c_cpp/helloc</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Time</span> <span class="pp">(</span><span class="ss">mean ± σ</span><span class="pp">)</span>:     298.4 µs ±  54.3 µs</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="ex">[User:</span> 253.0 µs, System: 7.3 µs]</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Range</span> <span class="pp">(</span><span class="ss">min … max</span><span class="pp">)</span>:   259.5 µs … 626.1 µs</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="ex">100</span> runs</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="ex">//</span> hellocpp</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="ex">hyperfine</span> <span class="at">-N</span> <span class="at">-r</span> 100 ./c_cpp/hellocpp</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="ex">//</span> Kết quả</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="ex">Benchmark</span> 1: ./Bai_1/c_cpp/hellocpp</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Time</span> <span class="pp">(</span><span class="ss">mean ± σ</span><span class="pp">)</span>:     770.4 µs ±  85.0 µs</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>  <span class="ex">[User:</span> 664.6 µs, System: 37.8 µs]</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Range</span> <span class="pp">(</span><span class="ss">min … max</span><span class="pp">)</span>:   608.0 µs … 1006.3 µs</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>  <span class="ex">100</span> runs</span></code></pre></div>
+<hr />
+<h4 id="assembly-1">Assembly</h4>
+<p>Kích thước file thực thi là kích thước file hello (elf):</p>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode zsh"><code class="sourceCode zsh"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">//</span> Giả sử đang ở folder Bai_1 <span class="op">(fo</span>lder gốc)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>du -a asm/</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>// Kết quả</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>4   asm/hello.asm</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>8   asm/hello</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>4   asm/hello.<span class="op">o</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="ex">20</span>  asm</span></code></pre></div>
+<p>Tốc độ file:</p>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode zsh"><code class="sourceCode zsh"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">//</span> Câu lệnh</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="ex">hyperfine</span> <span class="at">-N</span> <span class="at">-r</span> 100 ./Bai_1/asm/hello</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="ex">//</span> Kết quả</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="ex">Benchmark</span> 1: ./Bai_1/asm/hello</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Time</span> <span class="pp">(</span><span class="ss">mean ± σ</span><span class="pp">)</span>:     309.9 µs ± 105.1 µs</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="ex">[User:</span> 188.4 µs, System: 13.0 µs]</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Range</span> <span class="pp">(</span><span class="ss">min … max</span><span class="pp">)</span>:   212.8 µs … 849.4 µs</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  <span class="ex">100</span> runs</span></code></pre></div>
+<hr />
+<h3 id="nhận-xét-về-kết-quả-đạt-được">Nhận xét về kết quả đạt được</h3>
+<p>Đây là bảng so sánh các thông số của các chương trình:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Chương trình</th>
+<th>Kích thước</th>
+<th>Thời gian (min/max/avg)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Python</td>
+<td>7.8 MB</td>
+<td>103.2/113.2/104.9 (ms)</td>
+</tr>
+<tr class="even">
+<td>C</td>
+<td>16 B</td>
+<td>259.5/626.1/298.4 (μs)</td>
+</tr>
+<tr class="odd">
+<td>C++</td>
+<td>20 B</td>
+<td>608/1006.3/770.4 (μs)</td>
+</tr>
+<tr class="even">
+<td>Assembly</td>
+<td>8 B</td>
+<td>212.8/849.4/309.9 (μs)</td>
+</tr>
+</tbody>
+</table>
+<p>Nhìn chung, file thực thi của python có kích thước cũng như thời gian
+lớn nhất, và giảm dần theo thứ tự là C++, C và Asm.</p>
+<p>Có thể thấy, ngôn ngữ lập trình nào càng dễ viết, càng yêu cầu nhiều
+bộ nhớ và thời gian thực thi.</p>
+<h2 id="phụ-lục">Phụ lục</h2>
+<h3 id="về-filesystem-trong-windows-và-linux">Về filesystem trong
+windows và linux</h3>
+</body>
+</html>
