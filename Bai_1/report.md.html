@@ -204,9 +204,8 @@ Dịch ra 3 file thực thi độc lập, so sánh kích thước và tốc đ�
 <p>Vì hệ điều hành em sử dụng là Debian 13, nên file thực thi là file
 elf (executable &amp; linkable format).</p>
 <p>Để lấy được kích thước file, em sử dụng câu lệnh:
-<code>du -csh $file</code>, trong đó -csh là flag gồm: -c: in thêm tổng,
--s: in tổng của đối tượng chỉ định (không liệt kê đối tượng con), -h:
-hiển thị <strong>“human-readable”</strong>, và <code>$file</code> là
+<code>stat -c '%s %n' $file</code>, trong đó -c là flag chỉ định format,
+‘%s %n’ là format chỉ kích thước và tên file, và <code>$file</code> là
 file hoặc folder mà muốn kiểm tra kích thước.</p>
 <p>Để so sánh tốc độ chạy file thực thi, em sử dụng thêm gói
 <code>hyperfine</code> có sẵn trên <code>apt</code>:
@@ -233,11 +232,10 @@ file thực thi <code>main</code> duy nhất (ở đường dẫn
 <p>Kích thước file:</p>
 <div class="sourceCode" id="cb4"><pre
 class="sourceCode zsh"><code class="sourceCode zsh"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">//</span> Câu lệnh</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">du</span> <span class="at">-csh</span> python/dist/main</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="bu">stat</span> <span class="at">-c</span> <span class="st">&#39;%s %n&#39;</span> python/dist/<span class="pp">*</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="ex">//</span> Kết quả</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="ex">7.8M</span>    python/dist/main</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="ex">7.8M</span>    total</span></code></pre></div>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="ex">8131376</span> python/dist/main</span></code></pre></div>
 <p>Tốc độ chạy file:</p>
 <div class="sourceCode" id="cb5"><pre
 class="sourceCode zsh"><code class="sourceCode zsh"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">//</span> Câu lệnh</span>
@@ -261,13 +259,13 @@ class="sourceCode zsh"><code class="sourceCode zsh"><span id="cb6-1"><a href="#c
 <p>Kích thước file:</p>
 <div class="sourceCode" id="cb7"><pre
 class="sourceCode zsh"><code class="sourceCode zsh"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">//</span> Giả sử đang ở folder Bai_1 <span class="op">(fo</span>lder gốc)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>du -a c_cpp/</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>stat -c &#39;%s %n&#39; c_cpp/*</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>// Kết quả</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>4       ./helloc.c</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>16      ./helloc</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>4       ./hellocpp.cpp</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>20      ./hellocpp</span></code></pre></div>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>15952 c_cpp/helloc</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>61 c_cpp/helloc.c</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>16440 c_cpp/hellocpp</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>79 c_cpp/hellocpp.cpp</span></code></pre></div>
 <p>Tốc độ file:</p>
 <div class="sourceCode" id="cb8"><pre
 class="sourceCode zsh"><code class="sourceCode zsh"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">//</span> helloc</span>
@@ -294,13 +292,12 @@ class="sourceCode zsh"><code class="sourceCode zsh"><span id="cb8-1"><a href="#c
 <p>Kích thước file thực thi là kích thước file hello (elf):</p>
 <div class="sourceCode" id="cb9"><pre
 class="sourceCode zsh"><code class="sourceCode zsh"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">//</span> Giả sử đang ở folder Bai_1 <span class="op">(fo</span>lder gốc)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>du -a asm/</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>stat -c &#39;%s %n&#39; asm/*</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>// Kết quả</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>4   asm/hello.asm</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>8   asm/hello</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>4   asm/hello.<span class="op">o</span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="ex">20</span>  asm</span></code></pre></div>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>4600 asm/hello</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>202 asm/hello.asm</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>640 asm/hello.<span class="op">o</span></span></code></pre></div>
 <p>Tốc độ file:</p>
 <div class="sourceCode" id="cb10"><pre
 class="sourceCode zsh"><code class="sourceCode zsh"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">//</span> Câu lệnh</span>
@@ -326,22 +323,22 @@ class="sourceCode zsh"><code class="sourceCode zsh"><span id="cb10-1"><a href="#
 <tbody>
 <tr class="odd">
 <td>Python</td>
-<td>7.8 MB</td>
+<td>8131376 B (8.2 MB)</td>
 <td>103.2/113.2/104.9 (ms)</td>
 </tr>
 <tr class="even">
 <td>C</td>
-<td>16 B</td>
+<td>15952 B (16 KB)</td>
 <td>259.5/626.1/298.4 (μs)</td>
 </tr>
 <tr class="odd">
 <td>C++</td>
-<td>20 B</td>
+<td>16440 B (17 KB)</td>
 <td>608/1006.3/770.4 (μs)</td>
 </tr>
 <tr class="even">
 <td>Assembly</td>
-<td>8 B</td>
+<td>4600 B (4.6 KB)</td>
 <td>212.8/849.4/309.9 (μs)</td>
 </tr>
 </tbody>
@@ -402,6 +399,11 @@ class="sourceCode zsh"><code class="sourceCode zsh"><span id="cb11-1"><a href="#
 <p>Sau đó em sử dụng công cụ <code>pandoc</code> và
 <code>weasyprint</code> để lần lượt convert <code>report.md</code> sang
 <code>report.md.html</code> và <code>report.md.pdf</code>.</p>
+<h3 id="update">Update</h3>
+<p><code>du</code> là công cụ cho người dùng xem được disk allocation
+của file/folder, chứ không phải file size của file/folder.</p>
+<p>Em đã sửa lại báo cáo, sử dụng <code>stat</code> để hiển thị đúng
+file size.</p>
 <h2 id="tài-liệu-tham-khảo">Tài liệu tham khảo</h2>
 <p><a href="https://pyinstaller.org/en/stable/">pyinstaller</a></p>
 <p><a

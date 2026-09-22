@@ -138,7 +138,7 @@ Chạy file `hello` bằng câu lệnh `./hello` trên terminal ở folder chứ
 
 Vì hệ điều hành em sử dụng là Debian 13, nên file thực thi là file elf (executable & linkable format).
 
-Để lấy được kích thước file, em sử dụng câu lệnh: `du -csh $file`, trong đó -csh là flag gồm: -c: in thêm tổng, -s: in tổng của đối tượng chỉ định (không liệt kê đối tượng con), -h: hiển thị **"human-readable"**, và `$file` là file hoặc folder mà muốn kiểm tra kích thước.
+Để lấy được kích thước file, em sử dụng câu lệnh: `stat -c '%s %n' $file`, trong đó -c là flag chỉ định format, '%s %n' là format chỉ kích thước và tên file, và `$file` là file hoặc folder mà muốn kiểm tra kích thước.
 
 Để so sánh tốc độ chạy file thực thi, em sử dụng thêm gói `hyperfine` có sẵn trên `apt`: `sudo apt install hyperfine`.
 
@@ -160,11 +160,10 @@ Kích thước file:
 
 ```Zsh
 // Câu lệnh
-du -csh python/dist/main
+stat -c '%s %n' python/dist/*
 
 // Kết quả
-7.8M    python/dist/main
-7.8M    total
+8131376 python/dist/main
 ```
 
 Tốc độ chạy file:
@@ -197,13 +196,13 @@ Kích thước file:
 
 ```Zsh
 // Giả sử đang ở folder Bai_1 (folder gốc)
-du -a c_cpp/
+stat -c '%s %n' c_cpp/*
 
 // Kết quả
-4       ./helloc.c
-16      ./helloc
-4       ./hellocpp.cpp
-20      ./hellocpp
+15952 c_cpp/helloc
+61 c_cpp/helloc.c
+16440 c_cpp/hellocpp
+79 c_cpp/hellocpp.cpp
 ```
 
 Tốc độ file:
@@ -238,13 +237,12 @@ Kích thước file thực thi là kích thước file hello (elf):
 
 ```Zsh
 // Giả sử đang ở folder Bai_1 (folder gốc)
-du -a asm/
+stat -c '%s %n' asm/*
 
 // Kết quả
-4	asm/hello.asm
-8	asm/hello
-4	asm/hello.o
-20	asm
+4600 asm/hello
+202 asm/hello.asm
+640 asm/hello.o
 ```
 
 Tốc độ file:
@@ -267,12 +265,12 @@ Benchmark 1: ./Bai_1/asm/hello
 
 Đây là bảng so sánh các thông số của các chương trình:
 
-|Chương trình|Kích thước|Thời gian (min/max/avg)|
-|------------|----------|-----------------------|
-|Python      |7.8 MB    |103.2/113.2/104.9 (ms) |
-|C           |16 B      |259.5/626.1/298.4 (μs) |
-|C++         |20 B      |608/1006.3/770.4 (μs)  |
-|Assembly    |8 B       |212.8/849.4/309.9 (μs) |
+|Chương trình|Kích thước        |Thời gian (min/max/avg)|
+|------------|------------------|-----------------------|
+|Python      |8131376 B (8.2 MB)|103.2/113.2/104.9 (ms) |
+|C           |15952 B (16 KB)   |259.5/626.1/298.4 (μs) |
+|C++         |16440 B (17 KB)   |608/1006.3/770.4 (μs)  |
+|Assembly    |4600 B (4.6 KB)   |212.8/849.4/309.9 (μs) |
 
 Nhìn chung, file thực thi của python có kích thước cũng như thời gian lớn nhất, và giảm dần theo thứ tự là C++, C và Asm.
 
@@ -333,6 +331,12 @@ Ngoài ra, có thể sử dụng `FASM` hoặc `GAS`.
 Báo cáo này được viết dưới định dạng .md (markdown) file.
 
 Sau đó em sử dụng công cụ `pandoc` và `weasyprint` để lần lượt convert `report.md` sang `report.md.html` và `report.md.pdf`.
+
+### Update
+
+`du` là công cụ cho người dùng xem được disk allocation của file/folder, chứ không phải file size của file/folder.
+
+Em đã sửa lại báo cáo, sử dụng `stat` để hiển thị đúng file size.
 
 ## Tài liệu tham khảo
 
